@@ -1,0 +1,16 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+      <h2>Mixing since <%= @user.created_at %></h2>
+      <h2>Based out of <%= @user.zip_code %></h2>
+      <h2><%= @user.description %></h2>
+      <h2><%= @user.email %></h2>
+    </section>
+  </aside>
+</div>
+
