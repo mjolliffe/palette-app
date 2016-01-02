@@ -4,7 +4,6 @@
     <tr>
         <th><%= link_to "Course", "#" %></th>
         <th><%= link_to "Instructor", "#" %></th>
-        <th><%= link_to "Description", "#" %></th>
         <th><%= link_to "Zip Code", "#" %></th>
         <th><%= link_to "Start Date", "#" %></th>
         <th><%= link_to "End Date", "#" %></th>
@@ -14,10 +13,10 @@
     </tr>
     <% @courses.each do |course| %>
     <tr>
+        <td><img src=<%= course.course_image_url %>/></td>
         <td><%= course.name %></td>
         <td><%= course.instructor %></td>
         <!-- <td><a href="/employees/<%= employee.id %>"><%= employee.name %></a></td> -->
-        <td><%= course.description %></td>
         <td><%= course.zip_code %></td>
         <td><%= course.start_date %></td>
         <td><%= course.end_date %></td>
