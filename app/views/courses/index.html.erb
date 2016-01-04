@@ -2,27 +2,28 @@
 
 <table class="table">
     <tr>
+        <th></th>
         <th><%= link_to "Course", "#" %></th>
         <th><%= link_to "Instructor", "#" %></th>
         <th><%= link_to "Zip Code", "#" %></th>
+        <th><%= link_to "Held On", "#" %></th>
         <th><%= link_to "Start Date", "#" %></th>
         <th><%= link_to "End Date", "#" %></th>
-        <th><%= link_to "Held On", "#" %></th>
         <th><%= link_to "Sessions", "#" %></th>
         <th><%= link_to "Price", "#" %></th>
+        <th>Interested</th>
     </tr>
     <% @courses.each do |course| %>
     <tr>
-        <td><img src=<%= course.course_image_url %>/></td>
+        <td><%= image_tag(course.course_image_url, :class => "image") %></td>
         <td><%= course.name %></td>
         <td><%= course.instructor %></td>
-        <!-- <td><a href="/employees/<%= employee.id %>"><%= employee.name %></a></td> -->
         <td><%= course.zip_code %></td>
+        <td><%= course.course_day_of_week %></td>
         <td><%= course.start_date %></td>
         <td><%= course.end_date %></td>
-        <td><%= course.course_day_of_week %></td>
         <td><%= course.sessions_per_course %></td>
-        <td><%= "$#{course.price}" %></td>
+        <td><%= number_to_currency(course.price) %></td>
     </tr>
     <% end %>
 </table>

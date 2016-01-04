@@ -6,15 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Class.create()
+#Seed courses
+courses = Course.create([{name: 'Intro to Calligraphy', instructor: 'Samantha Reither',street_address: '126 North Bonnie Brae Street', zip_code: 92036, course_image_url:'', sessions_per_course: , }, {}])
 
-# Seed departments
-departments = ["HR", "Legal", "Accounting", "Engineering", "Sales"]
-departments.each do |name|
-    Department.create(name: name)
-end
 
-# Seed employees
-100.times do
-    Employee.create(name: Faker::Name.name, age: Faker::Number.between(18,65), address: Faker::Address.street_address, salary: Faker::Number.between(30000,100000), department_id: Faker::Number.between(1,5) )
-end
+   t.string   "name"
+    t.string   "instructor"
+    t.string   "street_address"
+    t.integer  "zip_code"
+    t.string   "course_image_url"
+    t.integer  "sessions_per_course"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "course_day_of_week"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.string   "description"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.decimal  "price",
