@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#_new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  get 'courses' => 'courses#index'
   get 'addcourses' => 'courses#new'
-  post 'courses' => 'courses#create'
   resources :users
-
+  resources :courses
 end

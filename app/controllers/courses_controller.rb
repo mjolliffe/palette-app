@@ -1,5 +1,4 @@
 class CoursesController < ApplicationController
-
   def index
     @courses = Course.all
   end
@@ -15,8 +14,8 @@ class CoursesController < ApplicationController
   def create
   @course = Course.new(course_params)
     if @course.save
-      flash[:success] = "Course Added!"
-      redirect_to courses_path
+      flash[:success] = "Course Added"
+      redirect_to @course
     else
       render 'new'
     end

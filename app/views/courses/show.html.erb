@@ -1,8 +1,10 @@
-<h1><%= @course.name %></h1>
-
-<p><%= @course.instructor %></p>
-<p><%= @course.zip_code %></p>
-<p><%= @course.description %></p>
-<p><%= @course.start_date %></p>
-<p><%= @course.price %></p>
-<p><%= @course.course_image_url %></p>
+<% provide(:title, @course.name) %>
+<div class="row">
+  <h1><%= @course.name %></h1>
+  <h2><%= @course.description %></h2>
+  <p>Instructor: <%= @course.instructor %></p>
+  <p>Located in <%= @course.zip_code %></p>
+  <p><%= @course.start_date.strftime("%m/%d/%Y") %></p>
+  <p><%= number_to_currency(@course.price) %></p>
+  <p><%= image_tag(@course.course_image_url, :class => "image")%></p>
+</div>
