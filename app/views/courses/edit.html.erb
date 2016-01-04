@@ -1,9 +1,9 @@
-<% provide(:title, 'Add a Course') %>
-<h1>create a course</h1>
+<% provide(:title, "Edit Class") %>
+<h1>update class information</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for @course do |f| %>
+    <%= form_for(@course) do |f| %>
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
@@ -38,7 +38,8 @@
       <%= f.label :price %>
       <%= f.number_field :price, :class => 'price', :value => (number_to_currency(f.object.price, :precision => 2) || 0) %>
 
-      <%= f.submit "create course", class: "btn btn-primary", id: "btn-submit" %>
+    <%= f.submit "save changes", class: "btn btn-primary" %>
     <% end %>
+
   </div>
 </div>
