@@ -1,7 +1,7 @@
 * Pictures of all of your wireframes.
-![Wireframe1](http://imgur.com/iCUb4KK)
-![Wireframe2](http://imgur.com/y40Kmin)
-![App Outline](http://imgur.com/nL1hufT)
+[Imgur](http://i.imgur.com/y40Kmin.jpg)
+[Imgur](http://i.imgur.com/iCUb4KK.jpg)
+[Imgur](http://i.imgur.com/nL1hufT.jpg)
 * Explanations of the technologies used.
 
 * Installation/startup instructions.
