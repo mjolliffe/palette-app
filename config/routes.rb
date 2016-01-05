@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   resources :users
   resources :courses
 
+ namespace :api do
+    resources :courses, only: [:index, :show]
+  end
+
 end

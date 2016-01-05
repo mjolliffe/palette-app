@@ -103,6 +103,16 @@ class CoursesController < ApplicationController
     end
   end
 
+  def current_user
+     @current_user ||= User.find_by(id: session[:user_id])
+  end
+
+  def enroll
+    @course = Course.find(params[:id])
+    @user = current_user
+    course.users << user
+  end
+
   def destroy
     @course = Course.find(params[:id])
     @course.destroy
