@@ -87,7 +87,7 @@ div.center.jumbotron {
   font-family: $secondary-font;
   font-size: 1.3em;
   color: $teal;
-  margin: 30px 0px;
+  margin: 0px 0px 25px;
 }
 
 .image {
@@ -226,7 +226,8 @@ input {
   border-color: $pink;
   font-family: $primary-font;
   font-size: 1.3em;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /* modals -- need to make it not shift the page. below not working */

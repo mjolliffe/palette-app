@@ -8,3 +8,6 @@
   <p><%= number_to_currency(@course.price) %></p>
   <p><%= image_tag(@course.course_image_url, :class => "image")%></p>
 </div>
+
+<h3><%= link_to "edit class", edit_course_path%></h3>
+<h3><%= link_to "delete class", course_path, method: :delete %></h3>

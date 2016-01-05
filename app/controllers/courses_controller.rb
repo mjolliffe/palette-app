@@ -27,12 +27,18 @@ class CoursesController < ApplicationController
 
   def update
     @course = Course.find(params[:id])
-    if @course.update_attributes(user_params)
+    if @course.update_attributes(course_params)
       flash[:success] = "Course Updated"
       redirect_to @course
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @course = Course.find(params[:id])
+    @course.destroy
+    redirect_to courses_path
   end
 
 private
