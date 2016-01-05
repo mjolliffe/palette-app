@@ -9,5 +9,12 @@
   <p><%= image_tag(@course.course_image_url, :class => "image")%></p>
 </div>
 
+<% if logged_in? && @current_user == %>
 <h3><%= link_to "edit class", edit_course_path%></h3>
 <h3><%= link_to "delete class", course_path, method: :delete %></h3>
+<% end %>
+
+<%= form_tag(course_path, method: "get") do %>
+    <%= submit_tag "Prev", "class" => "btn btn-primary" %>
+    <%= submit_tag "Next", "class" => "btn btn-primary" %>
+<% end %>

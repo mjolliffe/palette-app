@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'addcourses' => 'courses#new'
   resources :users
   resources :courses
+  get "courses/sort" => "courses#sort", as: :sort
 end

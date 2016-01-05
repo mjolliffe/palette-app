@@ -1,10 +1,51 @@
 class CoursesController < ApplicationController
+  @@descending = false
+
+  # def index
+  #   @courses = Course.all
+  # end
+
   def index
-    @courses = Course.all
+      if params[:query]
+          search_by = params[:search].to_sym
+          query = params[:query]
+          course_list = Course.all
+          @courses = []
+          course_list.each do |course|
+              if course[search_by].downcase.include? params[:query].downcase
+                  @courses << course
+              end
+          end
+      else
+      @courses = Course.all
+    end
   end
 
+  # def show
+  #   @course = Course.find(params[:id])
+  # end
+
   def show
-    @course = Course.find(params[:id])
+      if params[:commit] == "Next"
+          course = Course.find(params[:id].to_i + 1)
+          redirect_to course_path(course)
+      elsif params[:commit] == "Prev"
+          course = Course.find(params[:id].to_i - 1)
+          redirect_to course_path(course)
+      else
+          @course = Course.find(params[:id])
+      end
+  end
+
+  def sort
+    if @@descending
+      @courses = Course.order(params[:order_by] + 'DESC')
+      @@descending = false
+    else
+      @courses = Course.order(params[:order_by])
+      @@descending = true
+    end
+    render :index
   end
 
   def new

@@ -1,9 +1,18 @@
 <% provide(:title, 'Classes') %>
+
 <h1>classes available</h1>
+
+<%= form_tag('courses_path', method: 'get') do %>
+  search class by
+  <%= select_tag "search", options_for_select(["name", "instructor", "zip_code"]) %>
+  : <%=text_field_tag :query %>
+  <%= submit_tag "search", "class" => "btn btn-primary btn-submit"%>
+<% end %>
+
 <table class="table">
     <tr>
         <th></th>
-        <th><%= link_to "Course", "#" %></th>
+        <th><%= link_to "Course", sort_path(order_by: "name")%></th>
         <th><%= link_to "Instructor", "#" %></th>
         <th><%= link_to "Location", "#" %></th>
         <th><%= link_to "Held On", "#" %></th>
