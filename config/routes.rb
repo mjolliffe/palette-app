@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'addcourses' => 'courses#new'
+  get "courses/sort" => "courses#sort", as: :sort
   resources :users
   resources :courses
-  get "courses/sort" => "courses#sort", as: :sort
+
 end

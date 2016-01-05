@@ -23,6 +23,31 @@ class CoursesController < ApplicationController
     end
   end
 
+
+  # def index
+  #   if params[:query] && params[:search]
+  #     @paginate = false
+  #     search_by = params[:search].to_sym
+  #     query = params[:query]
+  #     course_list = Course.all
+  #     @courses = []
+  #     course_list.each do |course|
+  #       if course.name.downcase.include? params[:query].downcase
+  #         @courses << course
+  #       # elsif course.instructor.downcase.include? params[:query].downcase
+  #       #   @courses << course
+  #       elsif params[:query]
+  #         @courses = Course.where(:zip_code => params[:query])
+  #       else
+  #         @courses = Course.all
+  #       end
+  #     end
+  #   else
+  #     @paginate = true
+  #     @courses = Course.page(params[:page]).per(5).padding(0)
+  #   end
+  # end
+
   # def show
   #   @course = Course.find(params[:id])
   # end
@@ -41,7 +66,7 @@ class CoursesController < ApplicationController
 
   def sort
     if @@descending
-      @courses = Course.order(params[:order_by] + 'DESC')
+      @courses = Course.order(params[:order_by] + ' DESC')
       @@descending = false
     else
       @courses = Course.order(params[:order_by])
