@@ -16,6 +16,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def current_user
+     @current_user ||= User.find_by(id: session[:user_id])
+  end
+
   def destroy
     log_out if logged_in?
     redirect_to root_path

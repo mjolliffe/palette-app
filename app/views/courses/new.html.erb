@@ -1,5 +1,5 @@
 <% provide(:title, 'Add a Course') %>
-<h1>create a course</h1>
+<h1>create a class</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -37,6 +37,8 @@
 
       <%= f.label :price %>
       <%= f.number_field :price, :class => 'price', :value => (number_to_currency(f.object.price, :precision => 2) || 0) %>
+
+      <%= f.hidden_field :user_id, :value => current_user.id %>
 
       <%= f.submit "create course", class: "btn btn-primary", id: "btn-submit" %>
     <% end %>
