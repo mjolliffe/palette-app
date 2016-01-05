@@ -38,7 +38,7 @@
       <%= f.label :price %>
       <%= f.number_field :price, :class => 'price', :value => (number_to_currency(f.object.price, :precision => 2) || 0) %>
 
-      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :creator_id, :value => current_user.id %>
 
       <%= f.submit "create course", class: "btn btn-primary", id: "btn-submit" %>
     <% end %>

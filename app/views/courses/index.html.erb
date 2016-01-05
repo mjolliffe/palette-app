@@ -1,9 +1,4 @@
 <% provide(:title, 'Classes') %>
-
-<% if @paginate %>
-  <%= paginate @courses %>
-<% end %>
-
 <h1>classes available</h1>
 
 <%= form_tag('courses_path', method: 'get') do %>
@@ -41,3 +36,6 @@
     </tr>
     <% end %>
 </table>
+<% if @paginate %>
+  <%= paginate @courses %>
+<% end %>

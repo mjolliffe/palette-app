@@ -1,0 +1,17 @@
+<h3>classes i created</h3>
+<table class="table">
+    <tr>
+        <th>Class Name</th>
+        <th>Instructor</th>
+        <th>Start Date</th>
+    </tr>
+      <% current_user.courses.each do |t| %>
+    <tr>
+        <td><%= t.name %></td>
+        <td><%= t.instructor %></td>
+        <td><%= t.start_date %></td>
+    </tr>
+    <% end %>
+</table>
+
+<h3>classes i am signed up for</h3>
