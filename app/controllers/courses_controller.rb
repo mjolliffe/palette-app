@@ -6,18 +6,20 @@ class CoursesController < ApplicationController
   # end
 
   def index
-      if params[:query]
-          search_by = params[:search].to_sym
-          query = params[:query]
-          course_list = Course.all
-          @courses = []
-          course_list.each do |course|
-              if course[search_by].downcase.include? params[:query].downcase
-                  @courses << course
-              end
-          end
-      else
-      @courses = Course.all
+    if params[:query] && params[:search]
+      @paginate = false
+      search_by = params[:search].to_sym
+      query = params[:query]
+      course_list = Course.all
+      @courses = []
+      course_list.each do |course|
+        if course[search_by].downcase.include? params[:query].downcase
+            @courses << course
+        end
+      end
+    else
+      @paginate = true
+      @courses = Course.page(params[:page]).per(5).padding(0)
     end
   end
 
