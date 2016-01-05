@@ -19,8 +19,10 @@
         <th><%= link_to "End Date", "#" %></th>
         <th><%= link_to "Sessions", "#" %></th>
         <th><%= link_to "Price", "#" %></th>
-        <th><%= link_to "Interested", "#" %></th>
-        <th><%= link_to "Sign Up", "#" %></th>
+        <% if logged_in? %>
+            <th><%= link_to "Interested", "#" %></th>
+            <th><%= link_to "Sign Up", "#" %></th>
+        <% end %>
     </tr>
     <% @courses.each do |course| %>
     <tr>
