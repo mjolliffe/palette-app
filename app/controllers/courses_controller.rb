@@ -89,6 +89,8 @@ class CoursesController < ApplicationController
     course = Course.find(params[:id])
     user = current_user
     course.users << user
+    flash[:success] = "Successfully Enrolled"
+    redirect_to courses_path(course)
   end
 
   def destroy

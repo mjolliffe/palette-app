@@ -15,5 +15,4 @@
   <%= f.submit "submit", class: "btn btn-primary", id: "btn-submit" %>
 <% end %>
 
-<p>New user? <%= link_to "Sign Up Today!", signup_path %></p>
-
+<p>New user? <%= link_to "Sign Up Today!", signup_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#signupModal', 'data-type' => "html" } %></p>
