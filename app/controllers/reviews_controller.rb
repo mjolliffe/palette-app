@@ -29,10 +29,9 @@ class ReviewsController < ApplicationController
 
 
   def destroy
-    @course = Course.find(params[:id])
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to @course
+    redirect_to :back
   end
 
   private
