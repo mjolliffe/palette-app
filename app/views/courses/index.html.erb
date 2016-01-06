@@ -11,14 +11,14 @@
 <table class="table">
     <tr>
         <th></th>
-        <th><%= link_to "Course", sort_url(order_by: "name")%></th>
-        <th><%= link_to "Instructor", "#" %></th>
-        <th><%= link_to "Location", "#" %></th>
-        <th><%= link_to "Held On", "#" %></th>
-        <th><%= link_to "Start Date", "#" %></th>
-        <th><%= link_to "End Date", "#" %></th>
-        <th><%= link_to "Sessions", "#" %></th>
-        <th><%= link_to "Price", "#" %></th>
+        <th><%= link_to "Course", sort_url(order_by: "name") %></th>
+        <th><%= link_to "Instructor", sort_url(order_by: "instructor") %></th>
+        <th><%= link_to "Location", sort_url(order_by: "zip_code") %></th>
+        <th><%= link_to "Held On", sort_url(order_by: "course_day_of_week") %></th>
+        <th><%= link_to "Start Date", sort_url(order_by: "start_date") %></th>
+        <th><%= link_to "End Date", sort_url(order_by: "end_date") %></th>
+        <th><%= link_to "Sessions", sort_url(order_by: "sessions_per_course") %></th>
+        <th><%= link_to "Price", sort_url(order_by: "price") %></th>
         <% if logged_in? %>
             <th><%= link_to "Interested", "#" %></th>
             <th><%= link_to "Enroll", "#" %></th>
@@ -35,7 +35,7 @@
         <td><%= course.end_date.strftime("%m/%d/%Y") %></td>
         <td><%= course.sessions_per_course %></td>
         <td><%= number_to_currency(course.price) %></td>
-        <td><%= button_to 'Enroll', @current_user, :method => 'enroll', :class => "btn btn-primary btn-lg" %></td>
+        <td><%= link_to 'Enroll', courses_enroll_path, :class => "btn btn-primary btn-lg" %></td>
     </tr>
     <% end %>
 </table>

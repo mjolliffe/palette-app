@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'addcourses' => 'courses#new'
   get "courses/sort" => "courses#sort", as: :sort
+  get 'courses/enroll' => 'courses#enroll', as: :courses_enroll
+
   resources :users
   resources :courses
 
