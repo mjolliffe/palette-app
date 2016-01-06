@@ -5,7 +5,7 @@
         <th>Instructor</th>
         <th>Start Date</th>
     </tr>
-      <% current_user.courses.each do |t| %>
+      <% Course.where(:creator_id => current_user.id).each do |t| %>
     <tr>
         <td><%= t.name %></td>
         <td><%= t.instructor %></td>
@@ -21,11 +21,11 @@
         <th>Instructor</th>
         <th>Start Date</th>
     </tr>
-    <% Course.all.each do |t| %>
-            <tr>
-                <td><%= t.name %></td>
-                <td><%= t.instructor %></td>
-                <td><%= t.start_date %></td>
-            </tr>
+    <% current_user.courses.each do |t| %>
+        <tr>
+            <td><%= t.name %></td>
+            <td><%= t.instructor %></td>
+            <td><%= t.start_date %></td>
+        </tr>
     <% end %>
 </table>
