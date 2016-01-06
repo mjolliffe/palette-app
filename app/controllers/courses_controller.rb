@@ -88,18 +88,25 @@ class CoursesController < ApplicationController
   def enroll
     course = Course.find(params[:id])
     user = current_user
-    course.users << user
-    flash[:success] = "Successfully Enrolled"
-    redirect_to courses_path(course)
+    #course_users = course.users.to_a #grab all current students in course
+    if course.users.where(:id => user.id).any? #check if student is in course; if student is in course then dont allow enrollment
+        flash[:error] = "You are already enrolled in this course."
+        redirect_to courses_path
+    else #if not signed up allow
+        course.users << user
+        flash[:success] = "Successfully Enrolled"
+        redirect_to courses_path(course)
+    end
   end
 
-  # def unenroll
-  #   course = Course.find(params[:id])
-  #   user = current_user
-  #   forget(course.users >> user)
-  #   flash[:success] = "Successfully Unenrolled"
-  #   redirect_to courses_path(course)
-  # end
+  def unenroll
+    remove user id from course and resave that (remove item from ruby array)
+    course = Course.find(params[:id])
+    user = current_user
+    course.save
+    flash[:success] = "Successfully Unenrolled"
+    redirect_to courses_path(course)
+  end
 
   def destroy
     @course = Course.find(params[:id])
