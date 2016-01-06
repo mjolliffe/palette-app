@@ -21,11 +21,11 @@
         <th>Instructor</th>
         <th>Start Date</th>
     </tr>
-      <% current_user.course.each do |t| %>
-    <tr>
-        <td><%= t.name %></td>
-        <td><%= t.instructor %></td>
-        <td><%= t.start_date %></td>
-    </tr>
+    <% Course.all.each do |t| %>
+            <tr>
+                <td><%= t.name %></td>
+                <td><%= t.instructor %></td>
+                <td><%= t.start_date %></td>
+            </tr>
     <% end %>
 </table>

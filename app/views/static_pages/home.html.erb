@@ -6,7 +6,12 @@
   <img class="image" src="http://d1nr5wevwcuzuv.cloudfront.net/product_photos/32530434/type_original.jpeg" />
   <img class="image" src="http://www.cocolia.cat/assets/arxius/23b9cd9295c8589fe1a46be07ca3882a.jpg" />
   <h2>art and design classes taught by experts in your neighborhood</h2>
-  <%= link_to 'Log In', login_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#loginModal', :class => "btn btn-primary btn-lg", 'data-type' => "html" } %>
-  <%= link_to 'Sign Up', signup_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#signupModal', :class => "btn btn-primary btn-lg", 'data-type' => "html" } %>
+  <% if !logged_in? %>
+    <%= link_to 'Log In', login_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#loginModal', :class => "btn btn-primary btn-lg", 'data-type' => "html" } %>
+    <%= link_to 'Sign Up', signup_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#signupModal', :class => "btn btn-primary btn-lg", 'data-type' => "html" } %>
+  <% end %>
+  <% if logged_in? %>
+    <h1>Welcome back to Palette!</h1>
+  <% end %>
 </div>
 

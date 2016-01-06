@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'addcourses' => 'courses#new'
   get "courses/sort" => "courses#sort", as: :sort
   get 'courses/enroll/:id' => 'courses#enroll', as: :courses_enroll
+  get 'courses/unenroll/:id' => 'courses#unenroll', as: :courses_unenroll
 
   resources :users
   resources :courses

@@ -93,6 +93,14 @@ class CoursesController < ApplicationController
     redirect_to courses_path(course)
   end
 
+  # def unenroll
+  #   course = Course.find(params[:id])
+  #   user = current_user
+  #   forget(course.users >> user)
+  #   flash[:success] = "Successfully Unenrolled"
+  #   redirect_to courses_path(course)
+  # end
+
   def destroy
     @course = Course.find(params[:id])
     @course.destroy
