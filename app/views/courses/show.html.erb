@@ -13,6 +13,12 @@
 </div>
 
 <% if logged_in? %>
+  <h4><%= link_to 'interested', interested_path, :class => "btn btn-primary" %></h4>
+  <h4><%= link_to 'enroll', courses_enroll_path, :class => "btn btn-primary" %></h4>
+  <h4><%= link_to 'unenroll', courses_unenroll_path, :class => "btn btn-primary" %></h4>
+
+<%= render 'reviews/newreview' %>
+
 <h3><%= link_to "edit class", edit_course_path%></h3>
 <h3><%= link_to "delete class", course_path, method: :delete %></h3>
 <% end %>

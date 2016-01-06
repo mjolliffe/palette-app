@@ -11,11 +11,14 @@ Rails.application.routes.draw do
   get "courses/sort" => "courses#sort", as: :sort
   get 'courses/enroll/:id' => 'courses#enroll', as: :courses_enroll
   get 'courses/unenroll/:id' => 'courses#unenroll', as: :courses_unenroll
+  get 'courses/interested/:id' => 'courses#interested', as: :interested
 
   resources :users
-  resources :courses
+  resources :courses do
+    resources :reviews
+  end
 
- namespace :api do
+  namespace :api do
     resources :courses, only: [:index, :show]
   end
 

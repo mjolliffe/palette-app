@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :courses
   # has_many :courses, foreign_key: "creator_id"
+  has_many :reviews
 
   # Returns the hash digest of the given string.
   def User.digest(string)

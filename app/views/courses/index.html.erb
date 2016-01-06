@@ -36,9 +36,9 @@
         <td><%= course.sessions_per_course %></td>
         <td><%= number_to_currency(course.price) %></td>
         <% if logged_in? %>
-            <td><%= link_to 'Interested', "#", :class => "btn btn-primary" %></td>
-            <td><%= link_to 'Enroll', courses_enroll_path(course), :class => "btn btn-primary" %></td>
-            <td><%= link_to 'Unenroll', courses_unenroll_path(course), :class => "btn btn-primary" %></td>
+            <td><%= link_to 'interested', interested_path(course), :class => "btn btn-primary"%></td>
+            <td><%= link_to 'enroll', courses_enroll_path(course), :class => "btn btn-primary toggle", :id=>"enroll-toggle"%></td>
+            <td><%= link_to 'unenroll', courses_unenroll_path(course), :class => "btn btn-primary" %></td>
         <% end %>
     </tr>
     <% end %>
@@ -46,3 +46,11 @@
 <% if @paginate %>
   <%= paginate @courses %>
 <% end %>
+
+
+<!-- // $("#enroll-toggle").click(function(){
+//     $(".toggle").toggle();
+// }); -->
+
+
+
