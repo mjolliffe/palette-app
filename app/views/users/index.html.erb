@@ -14,17 +14,19 @@
 <% end %>
 </div>
 
+
+
 <div class="row">
-  <div class="col-md-12">
-    <ul class="users">
-      <% @users.each do |user| %>
-        <li>
-          <%= gravatar_for user %>
-          <%= link_to user.name, user %>
-          <%= user.description %>
-          <%= user.zip_code %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <% @users.each do |user| %>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img <%= gravatar_for user %>
+        <div class="caption">
+          <h5><%= link_to user.name, user %></h5>
+          <h5><%= user.description %></h5>
+          <h5><%= user.zip_code%></h5>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
