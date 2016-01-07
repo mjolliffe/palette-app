@@ -12,8 +12,20 @@
   </div>
 <% end %>
 <% if logged_in? %>
-  <h1>Welcome back <%= current_user.name %>!</h1>
-
+  <h1><%= current_user.name.downcase %>'s palette</h1>
+  <div class="row">
+    <div class="col-md-12 users">
+      <div class="thumbnail">
+        <img <%= gravatar_for current_user %>
+        <div class="caption">
+          <h5><%= current_user.name %></h5>
+          <h5><%= current_user.description %></h5>
+          <h5>Mixing since <%= current_user.created_at.strftime("%m/%d/%Y") %></h5>
+          <h5>Based out of <%= current_user.zip_code%></h5>
+        </div>
+      </div>
+    </div>
+  </div>
   <%= render 'users/myclasses' %>
 <% end %>
 

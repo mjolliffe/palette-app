@@ -1,5 +1,5 @@
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
+<% provide(:title, 'Users') %>
+<h1>palette users</h1>
 <%= form_tag(users_path, method: 'get') do %>
 <div class="row">
     <div class="col-md-3">
@@ -14,17 +14,16 @@
 <% end %>
 </div>
 
-
-
 <div class="row">
   <% @users.each do |user| %>
-    <div class="col-md-4">
+    <div class="col-md-4 users">
       <div class="thumbnail">
         <img <%= gravatar_for user %>
         <div class="caption">
           <h5><%= link_to user.name, user %></h5>
           <h5><%= user.description %></h5>
-          <h5><%= user.zip_code%></h5>
+          <h5>Mixing since <%= user.created_at.strftime("%m/%d/%Y") %></h5>
+          <h5>Based out of <%= user.zip_code%></h5>
         </div>
       </div>
     </div>

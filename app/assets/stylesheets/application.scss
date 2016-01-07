@@ -8,13 +8,13 @@ $primary-font: 'Montserrat', sans-serif;
 $secondary-font: 'Cardo', serif;
 
 /* colors */
-$mint: #C4FDD6;
 $blue: #092E4D;
 $pink: #FC8683;
-$light-pink: #EBD3C5;
-$teal: #092E4D;
+$light-pink: #A5E2F2;
+$light-blue: #0775C1;
 $white: #FAFCFC;
-$green: #3CA85D;
+$green: #00A45E;
+
 
 /* universal */
 body {
@@ -25,7 +25,7 @@ body {
 
 #bootstrap-overrides h1 {
   font-family: $primary-font;
-  color: $teal;
+  color: $blue;
   margin: 90px 0px 60px;
   text-align: center;
 }
@@ -33,7 +33,7 @@ body {
 h2 {
   font-family: $secondary-font;
   font-size: 2em;
-  color: $teal;
+  color: $blue;
   margin: 30px 0px;
   text-align: center;
 }
@@ -41,7 +41,7 @@ h2 {
 #bootstrap-overrides h3 {
   font-family: $primary-font;
   font-size: 3em;
-  color: $teal;
+  color: $blue;
   margin: 30px 0px 10px;
   text-align: center;
 }
@@ -57,7 +57,7 @@ textarea {
 /* homepage center jumbo */
 
 div.center.jumbotron {
-  background-color: $teal;
+  background-color: $blue;
   margin-top: 40px;
   color: $white;
 }
@@ -86,7 +86,7 @@ div.center.jumbotron {
 #bootstrap-overrides p {
   font-family: $secondary-font;
   font-size: 1.3em;
-  color: $teal;
+  color: $blue;
   margin: 0px 0px 25px;
 }
 
@@ -141,49 +141,23 @@ div.center.jumbotron {
   color: $blue;
 }
 
+#bootstrap-overrides .d-list {
+  color: $blue;
+  font-size: 1.2em;
+}
 /* Users index */
 
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
+#bootstrap-overrides .thumbnail {
+  padding: 15px;
+  border-color: $green;
+  background-color: $white;
+  border-radius: 5px;
 }
 
-/* sidebar */
+/* gravatar */
 
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1, h2 {
-      font-family: $secondary-font;
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
 
 .gravatar {
-  float: left;
   margin-right: 10px;
   width: 100px;
   height: 100px;
@@ -198,7 +172,7 @@ aside {
 label {
   font-family: $secondary-font;
   font-size: 1.2em;
-  color: $teal;
+  color: $blue;
   margin-top: 10px;
 }
 
@@ -308,7 +282,7 @@ footer {
 
 .select-search {
   font-family: $primary-font;
-  color: $teal;
+  color: $blue;
   font-size: 1.3em;
   margin-bottom: 10px;
   border-color: $green;
@@ -336,11 +310,11 @@ footer {
 }
 
 .fa-desktop {
-    color: $pink;
+    color: $light-blue;
 }
 
 .fa-commenting-o {
-    color: $teal;
+    color: $pink;
 }
 
 .fa-bicycle {
@@ -348,7 +322,7 @@ footer {
 }
 
 .fa-newspaper-o {
-    color: $teal;
+    color: $blue;
 }
 
 /* About Page */

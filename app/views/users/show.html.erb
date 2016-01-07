@@ -1,18 +1,19 @@
 <% provide(:title, @user.name) %>
+<h1><%= current_user.name.downcase %>'s palette</h1>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <h2>Mixing since <%= @user.created_at.strftime("%m/%d/%Y") %></h2>
-      <h2>Based out of <%= @user.zip_code %></h2>
-      <h2><%= @user.description %></h2>
-      <h2><%= @user.email %></h2>
-    </section>
-  </aside>
+  <div class="col-md-12 users">
+    <div class="thumbnail">
+      <img <%= gravatar_for @user %>
+      <div class="caption">
+        <h5><%= @user.name %></h5>
+        <h5><%= @user.description %></h5>
+        <h5>Mixing since <%= @user.created_at.strftime("%m/%d/%Y") %></h5>
+        <h5>Based out of <%= @user.zip_code%></h5>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <% if current_user.id == @user.id %>
 
