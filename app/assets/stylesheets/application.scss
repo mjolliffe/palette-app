@@ -119,6 +119,26 @@ div.center.jumbotron {
   }
 }
 
+#bootstrap-overrides .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  border: none;
+}
+
+#bootstrap-overrides .navbar-inverse .navbar-toggle {
+  border-color: $white;
+
+}
+
+#bootstrap-overrides .navbar-inverse .navbar-toggle:hover {
+    background-color: $blue;
+}
+
+#bootstrap-overrides .navbar-inverse .navbar-toggle:focus {
+    background-color: $pink;
+}
+#bootstrap-overrides .icon-bar {
+  background-color: $white;
+}
+
 .navbar.navbar-fixed-top.navbar-inverse {
   font-family: $secondary-font;
   background-color: $pink;
