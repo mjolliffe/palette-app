@@ -17,16 +17,19 @@ class ReviewsController < ApplicationController
     end
   end
 
-#   def create
-#     @review = Review.new(review_params)
-#     if @review.save
-#       flash[:success] = "Review Added"
-#       redirect_to @review
-#     else
-#       render 'new'
-#     end
-#   end
+  def edit
+    @review = Review.find(params[:id])
+  end
 
+  def update
+    @review = Review.find(params[:id])
+    if @review.update_attributes(review_params)
+      flash[:success] = "Review Updated"
+      redirect_to :back
+    else
+      render 'edit'
+    end
+  end
 
   def destroy
     @review = Review.find(params[:id])
@@ -38,27 +41,10 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:content, :user_id, :course_id)
     end
-#   def new
-#     @review = Review.new
-#   end
 
 #   def show
 #     @user = Review.find(params[:id])
-#   end
-
-#   def edit
-#     @review = Review.find(params[:id])
-#   end
-
-#   def update
-#     @review = Review.find(params[:id])
-#     if @review.update_attributes(review_params)
-#       flash[:success] = "Review Updated"
-#       redirect_to @review
-#     else
-#       render 'edit'
-#     end
-#   end
+#   en
 
 #   def destroy
 #     @review = Review.find(params[:id])

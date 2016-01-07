@@ -17,13 +17,14 @@
   <h4><%= link_to 'enroll', courses_enroll_path, :class => "btn btn-primary" %></h4>
   <h4><%= link_to 'unenroll', courses_unenroll_path, :class => "btn btn-primary" %></h4>
 
-  <%= render 'reviews/newreview' %>
+  <%= render 'reviews/new' %>
 
   <% @course.reviews.each do |review| %>
     <div>
       <%= current_user.name %>
       <div><%= review.content %>&nbsp;&nbsp;&nbsp;</div>
-      <span><%= link_to "✖", course_review_path(@course.id, review.id), method: :delete %>&nbsp;</span>
+      <span><%= link_to "edit review", edit_course_review_path(@course.id, review.id) %></span>
+      <span><%= link_to "delete review", course_review_path(@course.id, review.id), method: :delete %></span>
     </div>
   <% end %>
 
