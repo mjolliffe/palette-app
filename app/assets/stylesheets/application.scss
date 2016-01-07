@@ -297,3 +297,62 @@ footer {
     }
   }
 }
+/* Search Toolbar */
+#bootstrap-overrides h5 {
+  font-family: $primary-font;
+  color: $green;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.select-search {
+  font-family: $primary-font;
+  color: $teal;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  border-color: $green;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#search {
+    padding: 5px;
+}
+
+#btn-search {
+  font-family: $primary-font;
+  background-color: $green;
+  border-color: $green;
+  font-size: 1.3em;
+}
+/* Contact Page */
+.center {
+  text-align: center;
+}
+
+.fa {
+  padding-bottom: 20px;
+}
+
+.fa-desktop {
+    color: $pink;
+}
+
+.fa-commenting-o {
+    color: $teal;
+}
+
+.fa-bicycle {
+    color: $green;
+}
+
+.fa-newspaper-o {
+    color: $teal;
+}
+
+/* About Page */
+
+.about {
+  text-align: center;
+}

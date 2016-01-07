@@ -29,7 +29,7 @@ class CoursesController < ApplicationController
       end
     else
       @paginate = true
-      @courses = Course.page(params[:page]).per(5).padding(0)
+      @courses = Course.page(params[:page]).per(10).padding(0)
     end
   end
 

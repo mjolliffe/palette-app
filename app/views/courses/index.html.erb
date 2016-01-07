@@ -2,11 +2,18 @@
 <h1>classes available</h1>
 
 <%= form_tag(courses_path, method: 'get') do %>
-  search class by
-  <%= select_tag "search", options_for_select(["name", "instructor", "zip_code"]) %>
-  : <%=text_field_tag :query %>
-  <%= submit_tag "search", "class" => "btn btn-primary btn-submit"%>
+<div class="row">
+    <div class="col-md-3">
+        <%= select_tag "search", options_for_select([["Class Name", "name"], ["Instructor Name", "instructor"], ["Zip Code", "zip_code"]]), "class" => "select-search" %>
+    </div>
+    <div class="col-md-3">
+        <%= text_field_tag :query, nil, placeholder: 'Enter search term...', "class" => "select-search"  %>
+    </div>
+    <div class="col-md-3">
+        <%= submit_tag "search", "class" => "btn btn-primary", "id" => "btn-search"%>
+    </div>
 <% end %>
+</div>
 
 <table class="table">
     <tr>

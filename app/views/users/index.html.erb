@@ -1,19 +1,30 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 <%= form_tag(users_path, method: 'get') do %>
-  search user by
-  <%= select_tag "search", options_for_select(["name", "zip_code"]) %>
-  : <%=text_field_tag :query %>
-  <%= submit_tag "search", "class" => "btn btn-primary btn-submit"%>
+<div class="row">
+    <div class="col-md-3">
+        <%= select_tag "search", options_for_select([["Name","name",],["Zip Code", "zip_code"]]), "class" => "select-search" %>
+    </div>
+    <div class="col-md-3">
+        <%= text_field_tag :query, nil, placeholder: 'Enter search term...', "class" => "select-search"  %>
+    </div>
+    <div class="col-md-3">
+        <%= submit_tag "search", "class" => "btn btn-primary", "id" => "btn-search"%>
+    </div>
 <% end %>
+</div>
 
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user %>
-      <%= link_to user.name, user %>
-      <%= user.description %>
-      <%= user.zip_code %>
-    </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="users">
+      <% @users.each do |user| %>
+        <li>
+          <%= gravatar_for user %>
+          <%= link_to user.name, user %>
+          <%= user.description %>
+          <%= user.zip_code %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

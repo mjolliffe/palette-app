@@ -12,7 +12,7 @@
   </div>
 <% end %>
 <% if logged_in? %>
-  <h1>Welcome back to Palette!</h1>
+  <h1>Welcome back <%= current_user.name %>!</h1>
 
   <%= render 'users/myclasses' %>
 <% end %>

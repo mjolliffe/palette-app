@@ -1,7 +1,8 @@
 <% provide(:title, "About") %>
 <h1>about palette</h1>
-<p>
-  Palette is a platform created to help students of all ages and walks of life find, share, &amp; sign up for art &amp; design courses in their neighborhoods. Classes are taught by experts in their fields and range from calligraphy to woodworking to glassblowing and more!
+<p class = "about">
+  Palette is a platform created to help students of all ages and walks of life find, share, &amp; sign up for art &amp; design courses located right in their neighborhoods. Classes are taught by experts in their fields and range from calligraphy to woodworking to web design to glassblowing and more!
 </p>
-<p>Sign up for Palette today to start mixing and mingling with creatives in your area.
+<p class = "about">
+<%= link_to "Sign up for Palette today", signup_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#signupModal', 'data-type' => "html" } %> to start creating beautiful things while meeting with creatives in your area.
 </p>
