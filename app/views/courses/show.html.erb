@@ -28,10 +28,13 @@
 
   <% @course.reviews.each do |review| %>
     <div>
-      <%= current_user.name %>
+      <h1><%= User.find_by(:id => @review.user_id) %></h1>
       <div><%= review.content %>&nbsp;&nbsp;&nbsp;</div>
+    <% if current_user.id == @review.user_id %>
       <span><%= link_to "edit review", edit_course_review_path(@course.id, review.id) %></span>
       <span><%= link_to "delete review", course_review_path(@course.id, review.id), method: :delete %></span>
+    <% end %>
+
     </div>
   <% end %>
 
