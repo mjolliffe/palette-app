@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for @review, :url => edit_course_review_path do |f|%>
+    <%= form_for @review, :url => course_review_path, method: :patch do |f|%>
 
       <%= f.label :content, "Review" %>
       <%= f.text_field :content, :placeholder => "Write your review here.", class: 'form-control' %>

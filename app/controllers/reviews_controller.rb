@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     if @review.update_attributes(review_params)
       flash[:success] = "Review Updated"
-      redirect_to :back
+      redirect_to course_path(Course.find_by(:id => @review.course_id))
     else
       render 'edit'
     end
