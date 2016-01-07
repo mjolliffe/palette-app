@@ -12,6 +12,17 @@
   <p><%= image_tag(@course.course_image_url, :class => "image")%></p>
 </div>
 
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCkJwN8UYx38_JWe-A8-c79krZCpmkBOYI&q=<%=@course.street_address%>" allowfullscreen>
+</iframe>
+
+
+
+
 <% if logged_in? %>
   <h4><%= link_to 'interested', interested_path, :class => "btn btn-primary" %></h4>
   <h4><%= link_to 'enroll', courses_enroll_path, :class => "btn btn-primary" %></h4>
