@@ -3,13 +3,13 @@
 
 <%= form_tag(courses_path, method: 'get') do %>
 <div class="row">
-    <div class="col-md-3">
-        <%= select_tag "search", options_for_select([["Class Name", "name"], ["Instructor Name", "instructor"], ["Zip Code", "zip_code"]]), "class" => "select-search" %>
+    <div class="col-md-4">
+        <%= select_tag "search", options_for_select([["Class Name", "name"], ["Instructor Name", "instructor"], ["Zip Code", "zip_code"]]), "class" => "select-search select-div" %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <%= text_field_tag :query, nil, placeholder: 'Enter search term...', "class" => "select-search"  %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <%= submit_tag "search", "class" => "btn btn-primary", "id" => "btn-search"%>
     </div>
 <% end %>
@@ -27,13 +27,14 @@
         <th><%= link_to "Sessions", sort_url(order_by: "sessions_per_course") %></th>
         <th><%= link_to "Price", sort_url(order_by: "price") %></th>
         <% if logged_in? %>
-            <th><%= link_to "Interested", "#" %></th>
-            <th><%= link_to "Enroll", "#" %></th>
+<!--             <th><%= link_to "Interested", "#" %></th>
+ -->        <th><%= link_to "Enroll", "#" %></th>
+            <th><%= link_to "Unenroll", "#" %></th>
         <% end %>
     </tr>
     <% @courses.each do |course| %>
     <tr>
-        <td><%= link_to image_tag(course.course_image_url, :class => "thumbnail-image"), course_path(course)%></td>
+        <td><%= link_to image_tag(course.course_image_url, :class => "thumbnail-image img-rounded"), course_path(course)%></td>
         <td><%= link_to course.name, course_path(course) %></td>
         <td><%= course.instructor %></td>
         <td><%= course.zip_code %></td>
@@ -43,13 +44,14 @@
         <td><%= course.sessions_per_course %></td>
         <td><%= number_to_currency(course.price) %></td>
         <% if logged_in? %>
-            <td><%= link_to 'interested', interested_path(course), :class => "btn btn-primary"%></td>
-            <td><%= link_to 'enroll', courses_enroll_path(course), :class => "btn btn-primary toggle", :id=>"enroll-toggle"%></td>
-            <td><%= link_to 'unenroll', courses_unenroll_path(course), :class => "btn btn-primary" %></td>
+<!--             <td><%= link_to 'interested', interested_path(course), :class => "btn btn-primary"%></td> -->
+            <td><%= link_to 'enroll', courses_enroll_path(course), :class => "btn btn-primary btn-enroll toggle", :id=>"enroll-toggle"%></td>
+            <td><%= link_to 'unenroll', courses_unenroll_path(course), :class => "btn btn-primary btn-enroll" %></td>
         <% end %>
     </tr>
     <% end %>
 </table>
+
 <% if @paginate %>
   <%= paginate @courses %>
 <% end %>

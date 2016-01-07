@@ -1,12 +1,14 @@
-<h3>classes you created</h3>
+<h4>classes you created</h4>
 <table class="table">
     <tr>
+        <th></th>
         <th>Class Name</th>
         <th>Instructor</th>
         <th>Start Date</th>
     </tr>
     <% Course.where(:creator_id => current_user.id).each do |t| %>
         <tr>
+            <td><%= link_to image_tag(t.course_image_url, :class => "thumbnail-image"), course_path(t.id) %></td>
             <td><%= link_to t.name, course_path(t.id) %></td>
             <td><%= t.instructor %></td>
             <td><%= t.start_date %></td>
@@ -14,20 +16,26 @@
     <% end %>
 </table>
 
-<h3>classes you signed up for</h3>
+<h4>classes you signed up for</h4>
 <table class="table">
     <tr>
+        <th></th>
         <th>Class Name</th>
         <th>Instructor</th>
         <th>Start Date</th>
+        <% if logged_in? %>
+            <th>Unenroll</th>
+        <% end %>
     </tr>
     <% current_user.courses.each do |t| %>
         <tr>
+            <td><%= link_to image_tag(t.course_image_url, :class => "thumbnail-image"), course_path(t.id) %></td>
             <td><%=link_to t.name, course_path(t.id) %></td>
             <td><%= t.instructor %></td>
             <td><%= t.start_date %></td>
+            <% if logged_in? %>
+                <td><%= link_to 'unenroll', courses_unenroll_path(t.id), :class => "btn btn-primary btn-enroll" %></td>
+            <% end %>
         </tr>
     <% end %>
 </table>
-
-<h3>classes you are interested in</h3>

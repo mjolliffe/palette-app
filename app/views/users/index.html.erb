@@ -2,13 +2,13 @@
 <h1>palette users</h1>
 <%= form_tag(users_path, method: 'get') do %>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
         <%= select_tag "search", options_for_select([["Name","name",],["Zip Code", "zip_code"]]), "class" => "select-search" %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <%= text_field_tag :query, nil, placeholder: 'Enter search term...', "class" => "select-search"  %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <%= submit_tag "search", "class" => "btn btn-primary", "id" => "btn-search"%>
     </div>
 <% end %>

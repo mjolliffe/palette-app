@@ -1,3 +1,8 @@
+/*
+*= require_self
+*= require_tree .
+*/
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -30,20 +35,69 @@ body {
   text-align: center;
 }
 
-h2 {
+#bootstrap-overrides h2 {
   font-family: $secondary-font;
-  font-size: 2em;
-  color: $blue;
-  margin: 30px 0px;
+  color: $light-blue;
+  margin: 30px 0px 0px;
   text-align: center;
 }
 
 #bootstrap-overrides h3 {
-  font-family: $primary-font;
-  font-size: 3em;
-  color: $blue;
-  margin: 30px 0px 10px;
+  font-family: $secondary-font;
+  font-size: 2.5em;
+  color: $white;
+  margin: 30px 0px 0px;
   text-align: center;
+}
+
+#bootstrap-overrides h4 {
+  font-family: $primary-font;
+  font-size: 2.5em;
+  color: $blue;
+  margin: 30px 0px 0px;
+  text-align: center;
+  text-align: center;
+}
+
+#bootstrap-overrides h5 {
+  font-family: $primary-font;
+  color: $green;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#bootstrap-overrides h5 a {
+  font-family: $primary-font;
+  color: $green;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#bootstrap-overrides h6 {
+  font-family: $secondary-font;
+  float: left;
+  color: $pink;
+  margin: auto;
+  font-size: 1em;
+  padding-top: 5px;
+}
+
+#bootstrap-overrides h6 a {
+  font-family: $secondary-font;
+  float: left;
+  color: $pink;
+  margin: auto;
+  font-size: 1em;
+  padding-top: 5px;
+}
+
+#bootstrap-overrides p {
+  font-family: $secondary-font;
+  font-size: 1.3em;
+  color: $blue;
+  margin: 0px 0px 25px;
 }
 
 section {
@@ -54,7 +108,90 @@ textarea {
   resize: vertical;
 }
 
-/* homepage center jumbo */
+
+/* Tables */
+#bootstrap-overrides th a {
+  font-family: $primary-font;
+  font-size: 0.9em;
+  color: $light-blue;
+    text-align: center;
+}
+
+#bootstrap-overrides td {
+  font-family: $primary-font;
+  font-size: 0.9em;
+}
+
+#bootstrap-overrides td a {
+  font-family: $primary-font;
+  color: $light-blue;
+}
+
+/* Buttons */
+#bootstrap-overrides .btn-primary {
+  background-color: $light-blue;
+  border-color: $light-blue;
+  color: $white;
+  font-family: $primary-font;
+}
+
+#bootstrap-overrides .btn.btn-lg.btn-primary {
+  background-color: $green;
+  border-color: $green;
+  color: $white;
+  margin: 40px 5px 0px;
+}
+
+#bootstrap-overrides #btn-submit {
+  background-color: $pink;
+  border-color: $pink;
+  font-family: $primary-font;
+  font-size: 1.3em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#bootstrap-overrides #btn-search {
+  font-family: $primary-font;
+  background-color: $green;
+  border-color: $green;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+
+#bootstrap-overrides .btn-prev {
+  font-family: $primary-font;
+  background-color: $light-blue;
+  border-color: $light-blue;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  padding: 5px;
+  max-width: 200px;
+}
+
+
+#bootstrap-overrides .btn-next {
+  font-family: $primary-font;
+  background-color: $light-blue;
+  border-color: $light-blue;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  padding: 5px;
+    max-width: 200px;
+
+}
+
+/*Class Page */
+div.center.course-info {
+  background-color: $light-blue;
+  margin-top: 40px;
+  color: $white;
+  border-radius: 6px;
+}
+
+/* Home */
 
 div.center.jumbotron {
   background-color: $blue;
@@ -64,10 +201,6 @@ div.center.jumbotron {
 
 .center {
   text-align: center;
-  h2 {
-  font-family: $secondary-font;
-  margin: 20px 0px 0px;
-  }
 }
 
 #bootstrap-overrides .center h1 {
@@ -76,20 +209,7 @@ div.center.jumbotron {
   color: $white;
 }
 
-.btn.btn-lg.btn-primary {
-  background-color: $green;
-  border-color: $green;
-  color: $white;
-  margin: 40px 5px 0px;
-}
-
-#bootstrap-overrides p {
-  font-family: $secondary-font;
-  font-size: 1.3em;
-  color: $blue;
-  margin: 0px 0px 25px;
-}
-
+/* Images */
 .image {
   max-width: 400px;
 }
@@ -100,9 +220,13 @@ div.center.jumbotron {
 
 .thumbnail-image {
   max-width: 200px;
-
 }
-/* header */
+
+.class-image {
+  max-width: 400px;
+}
+
+/* Header & Navbar */
 
 #logo {
   font-family: $primary-font;
@@ -174,20 +298,20 @@ div.center.jumbotron {
   border-radius: 5px;
 }
 
-/* gravatar */
-
+/* Gravatar */
 
 .gravatar {
   margin-right: 10px;
   width: 100px;
   height: 100px;
+  border-radius: 50px;
 }
 
 .gravatar_edit {
   margin-top: 15px;
 }
 
-/* forms */
+/* Forms */
 
 label {
   font-family: $secondary-font;
@@ -235,16 +359,7 @@ input {
   margin-left: 0;
 }
 
-#btn-submit {
-  background-color: $pink;
-  border-color: $pink;
-  font-family: $primary-font;
-  font-size: 1.3em;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-/* modals -- need to make it not shift the page. below not working */
+/* Modals */
 .modal-backdrop {
   z-index: -1 !important;
 }
@@ -260,7 +375,8 @@ input {
 #bootstrap-overrides .modal-header {
   border: none;
 }
-/* footer */
+
+/* Footer */
 
 footer {
   font-family: $secondary-font;
@@ -275,13 +391,6 @@ footer {
       color: $pink;
     }
   }
-  h4 {
-    float: left;
-    color: $pink;
-    margin: auto;
-    font-size: 1em;
-    padding-top: 5px;
-  }
   ul {
     float: right;
     list-style: none;
@@ -292,17 +401,10 @@ footer {
   }
 }
 /* Search Toolbar */
-#bootstrap-overrides h5 {
-  font-family: $primary-font;
-  color: $green;
-  font-size: 1.3em;
-  margin-bottom: 10px;
-  text-align: center;
-}
 
 .select-search {
   font-family: $primary-font;
-  color: $blue;
+  color: $green;
   font-size: 1.3em;
   margin-bottom: 10px;
   border-color: $green;
@@ -311,15 +413,44 @@ footer {
 }
 
 #search {
-    padding: 5px;
+  padding: 5px;
 }
 
-#btn-search {
+
+select{
+  background:transparent;
+  width: 100%;
+  height: 37px;
   font-family: $primary-font;
-  background-color: $green;
-  border-color: $green;
+  color: $pink;
   font-size: 1.3em;
+  margin-bottom: 10px;
+  border-color: $green;
+  border-radius: 5px;
+  padding: 5px;
+  line-height: 1;
+  }
+
+.select-div{
+  width: 100%;
+  height: 37px;
+  overflow: hidden;
+  border-top:$green 1px solid;
+  -webkit-border-radius: 4px 4px 4px 4px;
+   -moz-border-radius: 4px 4px 4px 4px;
+      border-radius: 4px 4px 4px 4px;
+  -webkit-box-shadow: inset 0 2px 4px rgba(107, 105, 105, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+   -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+      -moz-box-shadow:    0px 8px 3px -9px #000000;
+      -webkit-box-shadow: 0px 8px 3px -9px #000000;
+      box-shadow:         0px 8px 3px -9px #000000;
 }
+
+select > option {
+  background: $pink;
+}
+
 /* Contact Page */
 .center {
   text-align: center;
@@ -346,7 +477,9 @@ footer {
 }
 
 /* About Page */
-
 .about {
   text-align: center;
 }
+
+/* Home Page */
+

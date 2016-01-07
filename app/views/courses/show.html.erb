@@ -1,51 +1,63 @@
 <% provide(:title, @course.name) %>
+
 <div class="row">
-  <h1><%= @course.name %></h1>
-  <h2><%= @course.description %></h2>
+  <h1><%= @course.name.downcase %></h1>
+  <% if current_user.id == @course.creator_id %>
+    <h5><%= link_to "edit class", edit_course_path%> &nbsp;&nbsp;&nbsp;<%= link_to "delete class", course_path, method: :delete, data: { confirm: "You sure?" } %></h5>
+  <% end %>
+</div>
+<div class ="center course-info">
+  <h3><%= @course.description %></h3>
   <p>Instructor: <%= @course.instructor %></p>
-  <p>Located in <%= @course.zip_code %></p>
+  <p>Located at <%= @course.street_address %> <%= @course.zip_code %></p>
+  <iframe width="400" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCkJwN8UYx38_JWe-A8-c79krZCpmkBOYI&q=<%=@course.street_address%>" allowfullscreen class="img-rounded"></iframe>
   <p><%= @course.start_date.strftime("%m/%d/%Y") %></p>
   <p><%= @course.end_date.strftime("%m/%d/%Y") %></p>
   <p><%= @course.start_time %></p>
   <p><%= @course.end_time %></p>
   <p><%= number_to_currency(@course.price) %></p>
-  <p><%= image_tag(@course.course_image_url, :class => "image")%></p>
+  <% if logged_in? %>
+    <% if !@course.users.where(:id => current_user.id).any?  %>
+      <h2><%= link_to 'enroll', courses_enroll_path, :class => "btn btn-primary" %></h2>
+    <% end %>
+    <% if @course.users.where(:id => current_user.id).any?  %>
+      <h2><%= link_to 'unenroll', courses_unenroll_path, :class => "btn btn-primary" %></h2>
+    <% end %>
+  <% end %>
 </div>
 
-<iframe
-  width="600"
-  height="450"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCkJwN8UYx38_JWe-A8-c79krZCpmkBOYI&q=<%=@course.street_address%>" allowfullscreen>
-</iframe>
-
-<% if logged_in? %>
-  <h4><%= link_to 'interested', interested_path, :class => "btn btn-primary" %></h4>
-  <h4><%= link_to 'enroll', courses_enroll_path, :class => "btn btn-primary" %></h4>
-  <h4><%= link_to 'unenroll', courses_unenroll_path, :class => "btn btn-primary" %></h4>
-
-  <%= render 'reviews/new' %>
-
-  <% @course.reviews.each do |review| %>
-    <div>
-      <h4><%= link_to User.find_by(:id => review.user_id).name, user_path(User.find_by(:id => review.user_id).id) %></h1>
-      <div><%= review.content %>&nbsp;&nbsp;&nbsp;</div>
-    <% if current_user.id == review.user_id %>
-      <span><%= link_to "edit review", edit_course_review_path(@course.id, review.id) %></span>
-      <span><%= link_to "delete review", course_review_path(@course.id, review.id), method: :delete %></span>
-    <% end %>
-
+<div>
+  <% if logged_in? %>
+    <div class="center jumbotron">
+      <h1>reviews</h1>
+      <% @course.reviews.each do |review| %>
+        <table class ="table">
+          <thead>
+            <tr>
+              <th>reviewer</th>
+              <th>review</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= link_to User.find_by(:id => review.user_id).name, user_path(User.find_by(:id => review.user_id).id) %></td>
+              <td><%= review.content %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+      <%= render 'reviews/new' %>
+      <% if current_user.id == @review.user_id %>
+        <span><%= link_to "edit review", edit_course_review_path(@course.id, review.id) %></span>
+        <span><%= link_to "delete review", course_review_path(@course.id, review.id), method: :delete %></span>
+      <% end %>
     </div>
   <% end %>
 
-  <% if current_user.id == @course.creator_id %>
-  <h3><%= link_to "edit class", edit_course_path%></h3>
-  <h3><%= link_to "delete class", course_path, method: :delete, data: { confirm: "You sure?" } %></h3>
-  <% end %>
-<% end %>
-
-
-<%= form_tag(course_path, method: "get") do %>
-    <%= submit_tag "Prev", "class" => "btn btn-primary" %>
-    <%= submit_tag "Next", "class" => "btn btn-primary" %>
-<% end %>
+  <div class = "center">
+    <%= form_tag(course_path, method: "get") do %>
+        <%= submit_tag "prev class", "class" => "btn btn-primary btn-prev" %>
+        <%= submit_tag "next class", "class" => "btn btn-primary btn-next" %>
+    <% end %>
+  </div>
+</div>

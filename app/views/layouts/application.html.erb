@@ -17,14 +17,14 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"> </script>
   </head>
   <body id="bootstrap-overrides">
-  <%= render partial: "shared/flash_messages", flash: flash %>
-    <!-- Login Modal -->
+<!--   <%= render partial: "shared/flash_messages", flash: flash %>
+ -->    <!-- Login Modal -->
     <div class="modal fade" id="loginModal" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3>log in</h3>
+                <h4>log in</h4>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-md-offset-3">
@@ -41,7 +41,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3>sign up</h3>
+                <h4>sign up</h4>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-md-offset-3">
@@ -51,6 +51,8 @@
             </div>
         </div>
     </div>
+    <!-- End of Modal -->
+
     <!-- End of Modal -->
     <%= render 'layouts/header' %>
     <div class="container">

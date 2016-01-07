@@ -37,10 +37,10 @@ class CoursesController < ApplicationController
         #   @courses = Course.where(:zip_code => params[:query])
 
   def show
-    if params[:commit] == "Next"
+    if params[:commit] == "next class"
         course = Course.find(params[:id].to_i + 1)
         redirect_to course_path(course)
-    elsif params[:commit] == "Prev"
+    elsif params[:commit] == "prev class"
         course = Course.find(params[:id].to_i - 1)
         redirect_to course_path(course)
     else

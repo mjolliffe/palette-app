@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'courses/unenroll/:id' => 'courses#unenroll', as: :courses_unenroll
   get 'courses/interested/:id' => 'courses#interested', as: :interested
 
+  get 'courses/myclasses' => 'users#user_classes', as: :user_classes
+
   resources :users
   resources :courses do
     resources :reviews

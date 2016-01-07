@@ -19,10 +19,10 @@ before_action :correct_user,   only: [:edit, :update]
   end
 
   def show
-    if params[:commit] == "Next"
+    if params[:commit] == "next user"
         user = User.find(params[:id].to_i + 1)
         redirect_to user_path(user)
-    elsif params[:commit] == "Prev"
+    elsif params[:commit] == "prev user"
         user = User.find(params[:id].to_i - 1)
         redirect_to user_path(user)
     else

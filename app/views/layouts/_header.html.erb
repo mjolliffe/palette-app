@@ -23,7 +23,7 @@
                   classes <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to "all classes", courses_path, class: "d-list" %></li>
-                <li><%= link_to "my classes", current_user, class: "d-list" %></li>
+                <li><%= link_to "my classes", user_classes_path, class: "d-list" %></li>
                 <li class="divider"></li>
                 <li><%= link_to "create a class", addcourses_path, class: "d-list" %></li>
               </ul>
