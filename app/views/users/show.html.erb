@@ -10,9 +10,20 @@
       <h2>Based out of <%= @user.zip_code %></h2>
       <h2><%= @user.description %></h2>
       <h2><%= @user.email %></h2>
-      <h3><%= link_to "create a class", addcourses_path%></h3>
     </section>
   </aside>
 </div>
 
+<% if current_user.id == @user.id %>
+
 <%= render 'users/myclasses'%>
+
+<h3><%= link_to "create a class", addcourses_path%></h3>
+
+<% end %>
+
+
+<%= form_tag(user_path, method: "get") do %>
+    <%= submit_tag "Prev", "class" => "btn btn-primary" %>
+    <%= submit_tag "Next", "class" => "btn btn-primary" %>
+<% end %>

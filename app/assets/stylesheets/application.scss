@@ -91,11 +91,16 @@ div.center.jumbotron {
 }
 
 .image {
-  height: 200px;
+  max-width: 400px;
+}
+
+.home-image {
+  max-height: 200px;
 }
 
 .thumbnail-image {
-  height: 100px;
+  max-width: 200px;
+
 }
 /* header */
 

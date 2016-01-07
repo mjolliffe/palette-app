@@ -3,9 +3,6 @@ before_action :logged_in_user, only: [:index, :edit, :update]
 before_action :correct_user,   only: [:edit, :update]
 
   def index
-  end
-
-  def index
     if params[:query] && params[:search]
       search_by = params[:search].to_sym
       query = params[:query]
@@ -22,7 +19,15 @@ before_action :correct_user,   only: [:edit, :update]
   end
 
   def show
-    @user = User.find(params[:id])
+    if params[:commit] == "Next"
+        user = User.find(params[:id].to_i + 1)
+        redirect_to user_path(user)
+    elsif params[:commit] == "Prev"
+        user = User.find(params[:id].to_i - 1)
+        redirect_to user_path(user)
+    else
+        @user = User.find(params[:id])
+    end
   end
 
   def new
