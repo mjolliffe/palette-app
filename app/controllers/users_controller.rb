@@ -3,7 +3,22 @@ before_action :logged_in_user, only: [:index, :edit, :update]
 before_action :correct_user,   only: [:edit, :update]
 
   def index
-    @users = User.all
+  end
+
+  def index
+    if params[:query] && params[:search]
+      search_by = params[:search].to_sym
+      query = params[:query]
+      user_list = User.all
+      @users = []
+      user_list.each do |user|
+        if user[search_by].to_s.downcase.include? params[:query].to_s.downcase
+          @users << user
+        end
+      end
+    else
+      @users = User.all
+    end
   end
 
   def show
