@@ -1,10 +1,13 @@
-<h4>classes you created</h4>
+<h1>classes you created</h1>
+
 <table class="table">
     <tr>
         <th></th>
         <th>Class Name</th>
         <th>Instructor</th>
         <th>Start Date</th>
+        <th>Edit Class</th>
+        <th>Delete Class</th>
     </tr>
     <% Course.where(:creator_id => current_user.id).each do |t| %>
         <tr>
@@ -12,11 +15,13 @@
             <td><%= link_to t.name, course_path(t.id) %></td>
             <td><%= t.instructor %></td>
             <td><%= t.start_date %></td>
+            <td><%= link_to "edit class", edit_course_path(t), :class => "btn btn-primary btn-enroll"%></td>
+            <td><%= link_to "delete class", course_path(t), method: :delete, data: { confirm: "You sure?" }, :class => "btn btn-primary btn-enroll"%></td>
         </tr>
     <% end %>
 </table>
 
-<h4>classes you signed up for</h4>
+<h1>classes you signed up for</h1>
 <table class="table">
     <tr>
         <th></th>
@@ -26,6 +31,7 @@
         <% if logged_in? %>
             <th>Unenroll</th>
         <% end %>
+        <th></th>
     </tr>
     <% current_user.courses.each do |t| %>
         <tr>
@@ -36,6 +42,12 @@
             <% if logged_in? %>
                 <td><%= link_to 'unenroll', courses_unenroll_path(t.id), :class => "btn btn-primary btn-enroll" %></td>
             <% end %>
+            <td></td>
         </tr>
     <% end %>
 </table>
+
+<% if @paginate %>
+  <%= paginate @courses %>
+<% end %>
+

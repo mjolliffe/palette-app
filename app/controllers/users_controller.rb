@@ -40,7 +40,8 @@ before_action :correct_user,   only: [:edit, :update]
       flash[:success] = "Welcome to Palette!"
       redirect_to @user
     else
-      render 'new'
+      flash[:error] = "Please try signing up again."
+      redirect_to :back
     end
   end
 
