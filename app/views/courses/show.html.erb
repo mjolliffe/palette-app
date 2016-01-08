@@ -7,9 +7,6 @@
         <h5><%= link_to "edit class", edit_course_path%> &nbsp;&nbsp;&nbsp;<%= link_to "delete class", course_path, method: :delete, data: { confirm: "You sure?" } %></h5>
       <% end %>
     <% end %>
-    <% if !logged_in? %>
-        <h5><%= link_to "edit class", edit_course_path%> &nbsp;&nbsp;&nbsp;<%= link_to "delete class", course_path, method: :delete, data: { confirm: "You sure?" } %></h5>
-    <% end %>
   </div>
   <div class ="center course-description col-md-8">
     <h3><%= @course.description %></h3>

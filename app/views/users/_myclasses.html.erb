@@ -18,7 +18,7 @@
             <td><%= link_to image_tag(t.course_image_url, :class => "thumbnail-image"), course_path(t.id) %></td>
             <td><%= link_to t.name, course_path(t.id) %></td>
             <td><%= t.instructor %></td>
-            <td><%= t.start_date %></td>
+            <td><%= t.start_date.strftime("%m/%d/%Y")  %></td>
             <td><%= link_to "edit class", edit_course_path(t), :class => "btn btn-primary btn-enroll"%></td>
             <td><%= link_to "delete class", course_path(t), method: :delete, data: { confirm: "You sure?" }, :class => "btn btn-primary btn-enroll"%></td>
         </tr>
@@ -41,7 +41,7 @@
             <td><%= link_to image_tag(t.course_image_url, :class => "thumbnail-image"), course_path(t.id) %></td>
             <td><%=link_to t.name, course_path(t.id) %></td>
             <td><%= t.instructor %></td>
-            <td><%= t.start_date %></td>
+            <td><%= t.start_date.strftime("%m/%d/%Y")  %></td>
             <% if logged_in? %>
                 <td><%= link_to 'unenroll', courses_unenroll_path(t.id), :class => "btn btn-primary btn-enroll" %></td>
             <% end %>
