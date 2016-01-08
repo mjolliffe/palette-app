@@ -48,7 +48,7 @@ body {
 
 #bootstrap-overrides h3 {
   font-family: $secondary-font;
-  font-size: 2.5em;
+  font-size: 2em;
   color: $white;
   margin: 30px 0px 0px;
   text-align: center;
@@ -114,6 +114,9 @@ textarea {
 
 
 /* Tables */
+.review {
+  font-size: 18px;
+}
 #bootstrap-overrides th a {
   font-family: $primary-font;
   font-size: 0.9em;
@@ -130,7 +133,6 @@ textarea {
   font-family: $primary-font;
   color: $light-blue;
 }
-
 
 /* Buttons */
 #bootstrap-overrides .btn-primary {

@@ -12,8 +12,8 @@
     <% end %>
   </div>
   <div class ="center course-description col-md-8">
-    <h3 style="font-size:24px;"><%= @course.description %></h3>
-    <h3 style="font-size:24px;">Instructor: <%= @course.instructor %></h3>
+    <h3><%= @course.description %></h3>
+    <h3>Instructor: <%= @course.instructor %></h3>
   </div>
   <div class ="col-md-1">
   </div>
@@ -59,15 +59,13 @@
         <table class ="table">
           <thead>
             <tr>
-              <th>reviewer</th>
-              <th>review</th>
             </tr>
           </thead>
     <% @course.reviews.each do |review| %>
           <tbody>
             <tr>
               <td><%= link_to User.find_by(:id => review.user_id).name, user_path(User.find_by(:id => review.user_id).id)%></td>
-              <td><%= review.content %></td>
+              <td><%= review.content%></td>
               <td>
               <% if current_user.id == review.user_id %>
                 <%= link_to "edit review", edit_course_review_path(@course.id, review.id), :class => "btn btn-primary review" %>
