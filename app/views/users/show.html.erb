@@ -16,7 +16,6 @@
 
 
 <% if current_user.id == @user.id %>
-  <h5><%= link_to "create a class", new_course_path%> &nbsp; &nbsp; <%= link_to "sign up for classes", courses_path%></h5>
   <%= render 'users/myclasses'%>
 <% end %>
 

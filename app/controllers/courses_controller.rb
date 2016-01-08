@@ -88,7 +88,7 @@ class CoursesController < ApplicationController
     course = Course.find(params[:id])
     user = current_user
     if course.users.where(:id => user.id).any? #check if student is in course
-        flash[:alert] = "You are already enrolled in this course." #if student is in course then dont allow enrollment
+        flash[:danger] = "You are already enrolled in this course." #if student is in course then dont allow enrollment
         redirect_to courses_path
     else #if not signed up allow
         course.users << user
@@ -105,7 +105,7 @@ class CoursesController < ApplicationController
       course.save #resave course
       flash[:success] = "Successfully Unenrolled"
     else #if student is not enrolled in the course
-      flash[:alert] = "You are not enrolled in this course."
+      flash[:danger] = "You are not enrolled in this course."
     end
       redirect_to courses_path(course)
   end
