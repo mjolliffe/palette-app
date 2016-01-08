@@ -14,6 +14,9 @@ Installation/startup instructions.
 Unsolved problems, etc.
 *There are still a few bugs in the program that I need to sort out. Basic improvements I'd like to make are to:
 - Turn flash notices into nicer looking modals or messages.
+- Add time view to courses.
+- Edit course page should default time and price.
+- Add classes that users have created to the users page.
 - Toggle the enroll/unenroll button.
 - Change the gravatar default.
 - Make home page images dynamic.
