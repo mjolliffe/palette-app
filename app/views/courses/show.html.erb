@@ -27,11 +27,10 @@
   <div class ="col-md-1">
   </div>
   <div class ="center course-time col-md-3">
+    <h3><%= @course.course_day_of_week %></h3>
     <h3><%= @course.start_date.strftime("%m/%d/%Y") %></h3>
     <h3>to</h3>
     <h3><%= @course.end_date.strftime("%m/%d/%Y") %></h3>
-    <h3><%= @course.start_time %></h3>
-    <h3><%= @course.end_time %></h3>
   </div>
   <div class ="col-md-1">
   </div>
@@ -55,7 +54,6 @@
       <div class="center jumbotron col-md-12">
         <h3>reviews</h3>
               <%= render 'reviews/new' %>
-        <h3>previous reviews</h3>
         <table class ="table">
           <thead>
             <tr>
