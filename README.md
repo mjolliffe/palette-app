@@ -1,9 +1,8 @@
-The app can be accessed on: https://palette-application.herokuapp.com/
+Heroku: https://palette-application.herokuapp.com/
 
-Pictures of all of your wireframes.
-*[Imgur](http://i.imgur.com/y40Kmin.jpg)
-*[Imgur](http://i.imgur.com/iCUb4KK.jpg)
-*[Imgur](http://i.imgur.com/nL1hufT.jpg)
+Trello: https://trello.com/b/31WFllDg/project-2-rails-app-palette
+
+Wireframes:[1](http://i.imgur.com/y40Kmin.jpg), [2](http://i.imgur.com/iCUb4KK.jpg), [3](http://i.imgur.com/nL1hufT.jpg)
 
 Explanations of the technologies used.
 * This program is a Ruby on Rails web application which uses a variety of gems such as Kaminari(pagination) and Bootstrap(CSS framework) to enhance it's functionality. The database created stores user, course, and comment information. It is a basic web application whose purpose is to allow users to search, view, comment on and sign up for art and design courses in their area.
