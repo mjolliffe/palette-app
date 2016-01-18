@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+# only a logged in user can view the users index page and edit or update their info
 before_action :logged_in_user, only: [:index, :edit, :update]
 before_action :correct_user,   only: [:edit, :update]
 
+  # lists out all of the users of palette
   def index
     if params[:query] && params[:search]
       search_by = params[:search].to_sym
@@ -18,6 +20,7 @@ before_action :correct_user,   only: [:edit, :update]
     end
   end
 
+  # shows individual user pages
   def show
     if params[:commit] == "next user"
         user = User.find(params[:id].to_i + 1)
@@ -30,6 +33,7 @@ before_action :correct_user,   only: [:edit, :update]
     end
   end
 
+  # allows a new user to sign up to palette
   def new
   end
 
@@ -45,6 +49,7 @@ before_action :correct_user,   only: [:edit, :update]
     end
   end
 
+  # allows a user to edit their user info
   def edit
     @user = User.find(params[:id])
   end
@@ -59,6 +64,7 @@ before_action :correct_user,   only: [:edit, :update]
     end
   end
 
+  # defines who the current user is
   def current_user
      @current_user ||= User.find_by(id: session[:user_id])
   end
@@ -80,6 +86,7 @@ before_action :correct_user,   only: [:edit, :update]
 
 private
   def user_params
+  # defines the params needed to create a new user
     params.require(:user).permit(:name, :email, :zip_code, :description, :password, :password_confirmation)
   end
 end

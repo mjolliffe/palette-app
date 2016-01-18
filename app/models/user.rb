@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
+  # defines the relationship that users have to courses and reviews
   has_and_belongs_to_many :courses
-  # has_many :courses, foreign_key: "creator_id"
   has_many :reviews
 
   # Returns the hash digest of the given string.

@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
+  # code below only allows the current user to create, edit or destroy the reviews they create
   before_action :current_user, only: [:create, :destroy, :new, :edit]
 
+  # allows for the user to add a review to a course
   def new
     @review = Review.new
   end
@@ -17,6 +19,7 @@ class ReviewsController < ApplicationController
     end
   end
 
+  # allows for the user to edit/update a review for a course
   def edit
     @review = Review.find(params[:id])
   end
@@ -31,6 +34,7 @@ class ReviewsController < ApplicationController
     end
   end
 
+  # allows for the user to delete a review
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
@@ -39,18 +43,7 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
+  # defines the params for a review
       params.require(:review).permit(:content, :user_id, :course_id)
     end
-
-#   def show
-#     @user = Review.find(params[:id])
-#   en
-
-#   def destroy
-#     @review = Review.find(params[:id])
-#     @review.destroy
-#     redirect_to course_reviews_path
-#   end
-
-
 end

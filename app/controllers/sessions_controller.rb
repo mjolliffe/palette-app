@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  # the code below defines how a session(login/logout) is created or deleted; covered in HARLTL book
   def new
   end
 

@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
+  # code below is used to set the sort status
   @@descending = false
 
+  # creates a new course
   def new
     @course = Course.new
   end
@@ -15,6 +17,7 @@ class CoursesController < ApplicationController
     end
   end
 
+  # adds kaminari paginator
   def index
     if params[:query] && params[:search]
       @paginate = false
@@ -33,9 +36,7 @@ class CoursesController < ApplicationController
     end
   end
 
-        # elsif params[:query]
-        #   @courses = Course.where(:zip_code => params[:query])
-
+  # shows individual classes as well as adds kaminari pagination to class pages
   def show
     if params[:commit] == "next class"
         course = Course.find(params[:id].to_i + 1)
@@ -48,6 +49,7 @@ class CoursesController < ApplicationController
     end
   end
 
+  # sorts classes on main class page
   def sort
     if @@descending
       @courses = Course.order(params[:order_by] + ' DESC')
@@ -59,6 +61,7 @@ class CoursesController < ApplicationController
     render :index
   end
 
+  # selects which class to edit and allows params to be updated
   def edit
     @course = Course.find(params[:id])
   end
@@ -73,17 +76,20 @@ class CoursesController < ApplicationController
     end
   end
 
+  # selects the current user based on the id of the session and the id of the user; they should match
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
-  def interested
-    course = Course.find(params[:id])
-    user = current_user
-    flash[:success] = "I see you're interested."
-    redirect_to courses_path
-  end
+  # wanted to implement the below so that the user could select that they were interested in the course but maybe enroll at a later date
+  # def interested
+  #   course = Course.find(params[:id])
+  #   user = current_user
+  #   flash[:success] = "I see you're interested."
+  #   redirect_to courses_path
+  # end
 
+  # allows the user to enroll in a course; addes the user to the course users database
   def enroll
     course = Course.find(params[:id])
     user = current_user
@@ -97,6 +103,7 @@ class CoursesController < ApplicationController
     end
   end
 
+  # allows the user to unenroll from the course by deleting the users id from the course database
   def unenroll
     course = Course.find(params[:id])
     user = current_user
@@ -110,6 +117,7 @@ class CoursesController < ApplicationController
       redirect_to courses_path(course)
   end
 
+  # deletes a course
   def destroy
     @course = Course.find(params[:id])
     @course.destroy
@@ -117,6 +125,7 @@ class CoursesController < ApplicationController
   end
 
 private
+  # defines the params that are particulare to creating a course; these are defined by the schema which was created when the course model was created
   def course_params
     params.require(:course).permit(:name, :instructor, :street_address, :zip_code, :course_image_url, :sessions_per_course, :start_date, :end_date, :course_day_of_week, :description, :price, :creator_id)
   end

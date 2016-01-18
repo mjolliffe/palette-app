@@ -1,7 +1,9 @@
+<!-- this page shows all the classes offered on palette -->
 <% provide(:title, 'Classes') %>
 <h1>classes available</h1>
 
 <%= form_tag(courses_path, method: 'get') do %>
+<!-- search tools -->
 <div class="row">
     <div class="col-md-4">
         <%= select_tag "search", options_for_select([["Class Name", "name"], ["Instructor Name", "instructor"], ["Zip Code", "zip_code"]]), "class" => "select-search select-div" %>
@@ -15,6 +17,7 @@
 <% end %>
 </div>
 
+<!-- table with courses listed and sort functionality -->
 <table class="table">
     <tr>
         <th></th>
