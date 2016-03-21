@@ -1,6 +1,6 @@
-<!-- shows individual courses -->
-<% provide(:title, @course.name) %>
-<div class = "center-contain">
+<div class="container">
+  <!-- shows individual courses -->
+  <% provide(:title, @course.name) %>
   <div class="row">
     <h1><%= @course.name.downcase %></h1>
     <% if logged_in? %>
@@ -9,73 +9,75 @@
       <% end %>
     <% end %>
   </div>
-  <div class ="center course-description col-md-8">
-    <h3><%= @course.description %></h3>
-    <h3>Instructor: <%= @course.instructor %></h3>
-  </div>
-  <div class ="col-md-1">
-  </div>
-  <div class ="center course-image col-md-3">
-    <h3><%= image_tag(@course.course_image_url, :class => "thumbnail-image img-rounded")%></h3>
-  </div>
-  <div class ="center course-address col-md-4">
-    <h3>Located at <%= @course.street_address %></h3>
-    <iframe width="250" height="150" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCkJwN8UYx38_JWe-A8-c79krZCpmkBOYI&q=<%=@course.street_address%>" allowfullscreen class="iframe"></iframe>
-  </div>
-  <div class ="col-md-1">
-  </div>
-  <div class ="center course-time col-md-3">
-    <h3><%= @course.course_day_of_week %></h3>
-    <h3><%= @course.start_date.strftime("%m/%d/%Y") %></h3>
-    <h3>to</h3>
-    <h3><%= @course.end_date.strftime("%m/%d/%Y") %></h3>
-  </div>
-  <div class ="col-md-1">
-  </div>
-  <div class ="center course-price col-md-3">
-    <h3>Class Fee</h3>
-    <h3><%= number_to_currency(@course.price) %></h3>
-  </div>
-  <div class ="col-md-1">
-  </div>
-  <% if logged_in? %>
-    <div class ="center course-enroll col-md-3">
-        <% if !@course.users.where(:id => current_user.id).any?  %>
-          <%= link_to 'enroll', courses_enroll_path(@course), :class => "btn btn-primary", :id => "btn-enroll"%>
-        <% end %>
-        <% if @course.users.where(:id => current_user.id).any?  %>
-          <%= link_to 'unenroll', courses_unenroll_path(@course), :class => "btn btn-primary", :id => "btn-enroll" %>
-        <% end %>
+  <div class="row">
+    <div class ="center course-description col-md-8">
+      <h3><%= @course.description %></h3>
+      <h3>Instructor: <%= @course.instructor %></h3>
     </div>
-  <% end %>
+    <div class ="col-md-1">
+    </div>
+    <div class ="center course-image col-md-3">
+      <h3><%= image_tag(@course.course_image_url, :class => "thumbnail-image img-rounded")%></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class ="center course-address col-md-4">
+      <h3>Located at <%= @course.street_address %></h3>
+      <iframe width="250" height="150" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCkJwN8UYx38_JWe-A8-c79krZCpmkBOYI&q=<%=@course.street_address%>" allowfullscreen class="iframe"></iframe>
+    </div>
+    <div class ="col-md-1">
+    </div>
+    <div class ="center course-time col-md-3">
+      <h3><%= @course.course_day_of_week %></h3>
+      <h3><%= @course.start_date.strftime("%m/%d/%Y") %></h3>
+      <h3>to</h3>
+      <h3><%= @course.end_date.strftime("%m/%d/%Y") %></h3>
+    </div>
+    <div class ="col-md-1">
+    </div>
+    <div class ="center course-price col-md-3">
+      <h3>Class Fee</h3>
+      <h3><%= number_to_currency(@course.price) %></h3>
+    </div>
+    <div class ="col-md-1">
+    </div>
     <% if logged_in? %>
-      <div class="center jumbotron col-md-12">
-        <h3>reviews</h3>
-              <%= render 'reviews/new' %>
-        <table class ="table">
-          <thead>
-            <tr>
-            </tr>
-          </thead>
-    <% @course.reviews.each do |review| %>
-          <tbody>
-            <tr>
-              <td><%= link_to User.find_by(:id => review.user_id).name, user_path(User.find_by(:id => review.user_id).id)%></td>
-              <td><%= review.content%></td>
-              <td>
-              <% if current_user.id == review.user_id %>
-                <%= link_to "edit review", edit_course_review_path(@course.id, review.id), :class => "btn btn-primary review" %>
-                <%= link_to "delete review", course_review_path(@course.id, review.id), method: :delete, :class => "btn btn-primary review"%>
-              <% end %>
-              </td>
-            </tr>
-          </tbody>
-    <% end %>
-        </table>
+      <div class ="center course-enroll col-md-3">
+          <% if !@course.users.where(:id => current_user.id).any?  %>
+            <%= link_to 'enroll', courses_enroll_path(@course), :class => "btn btn-primary", :id => "btn-enroll"%>
+          <% end %>
+          <% if @course.users.where(:id => current_user.id).any?  %>
+            <%= link_to 'unenroll', courses_unenroll_path(@course), :class => "btn btn-primary", :id => "btn-enroll" %>
+          <% end %>
       </div>
+  </div>
+  <div class="row">
+    <div class="center jumbotron col-md-12">
+      <h3>reviews</h3>
+      <%= render 'reviews/new' %>
+      <table class ="table">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <% @course.reviews.each do |review| %>
+        <tbody>
+          <tr>
+            <td><%= link_to User.find_by(:id => review.user_id).name, user_path(User.find_by(:id => review.user_id).id)%></td>
+            <td><%= review.content%></td>
+            <td>
+            <% if current_user.id == review.user_id %>
+              <%= link_to "edit review", edit_course_review_path(@course.id, review.id), :class => "btn btn-primary review" %>
+              <%= link_to "delete review", course_review_path(@course.id, review.id), method: :delete, :class => "btn btn-primary review"%>
+            <% end %>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+      </table>
+    </div>
     <% end %>
-</div>
-<div class="container">
+  </div>
   <div class="row">
     <div class = "center prev-next">
       <%= form_tag(course_path, method: "get") do %>
